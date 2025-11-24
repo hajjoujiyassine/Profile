@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>CV-Yassine Hajjouji</title>
-    <link rel="stylesheet" href="style_Profile.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -11,6 +10,272 @@
     
   </head>
   <body>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body{
+  color: #ededed;
+  background-color: #081B29;
+  cursor: grab;
+}
+
+.header{
+  position:fixed;
+  top:0;
+  left :0;
+  width: 100%;
+  padding: 20px 10px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.name{
+  position: relative;
+  font-size: 25px;
+  color: #ededed;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 50px;cursor: pointer;
+}
+
+.name i{
+  color: #00abf0;
+  filter: drop-shadow(0px 0px 20px );
+  margin: 15px 50px 0px 15px;
+}
+
+.name::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #081B29;
+  animation: ShowRight 1s ease forwards;
+  animation-delay: 2.5s;
+
+}
+
+.navbar a{
+ font-size: 18px;
+ color:#ededed;
+ text-decoration: none;
+ font-weight: 500;
+ margin-right: 30px;
+ transition: 3s;
+  padding: 20px 0;
+}
+
+.navbar a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #081B29;
+  animation: ShowRight 1s ease forwards;
+  animation-delay: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active{
+  color:#00abf0;
+}
+
+.Profil{
+  height: 90vh;
+  background: url(./home.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.Profil-content{
+   max-width: 600px;
+}
+
+.Profil-content h1{
+  position: relative;
+   font-size: 40px;
+   font-weight: 700;
+   line-height: 1.2;
+}
+
+.Profil-content h3{
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  color: #00abf0;
+}
+
+.Profil-content h1:before,
+.Profil-content h3:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #081B29;
+  animation: ShowRight 1s ease forwards;
+  animation-delay: 1.3s;
+}
+.Profil-content p{
+  position: relative;
+  font-size: 16px;
+  margin: 20px 0 40px;
+}
+
+.Profil-content p::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #081B29;
+  animation: ShowRight 1s ease forwards;
+  animation-delay: 1.6s;
+}
+
+
+.Profil-imgHover {
+   position: absolute;
+   top: 85px;
+   right: 80px;
+   width: 450px;
+   height: 60%;
+   background: transparent;
+   transition: 3s;
+}
+
+.Profil-imgHover::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #081B29;
+  animation: ShowRight 1s ease forwards;
+  animation-delay: 2s;
+}
+
+.Profil-imgHover:hover{
+  background: #081B29;
+  opacity: .8;
+}
+
+.imgp{
+   position: absolute;
+   right: 150px;
+   border-radius: 20px;
+   filter: drop-shadow(1px 1px 15px #00abf0  );
+}
+
+
+.Profil-sci{
+  position: absolute;
+  left :100px;
+  display: flex;
+  margin-top: 35%;
+}
+
+.Profil-sci::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #081B29;
+  animation: ShowRight 1s ease forwards;
+  animation-delay: 1.6s;
+}
+
+.Profil-sci div{
+  margin: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #00abf0;
+}
+
+strong{
+  color: #00abf0;
+  font-size: 20px;
+}
+
+.Profil-sci a{
+  color: white;
+  text-decoration: none;
+}
+ 
+ a{
+  cursor:pointer;
+}
+
+.Profil-sci a:hover,
+.Profil-sci a.active{
+  color:#00abf0;
+  font-weight: 600;
+}
+
+
+@keyframes ShowRight{
+  100%{
+    width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-left: 10px;
+    font-size: 16px;
+  }
+  
+  .navbar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .imgp {
+    width: 50%;
+    height: 50%;
+    border: none;
+    box-shadow: none;
+  }
+
+  .imgp img{
+    width: 0%;
+    height: 0%;
+  }
+
+  .Profil-imgHover:hover{
+  background: transparent;
+}
+  
+  .Profil-sci a{
+    margin: 0px 20px 65px 20px;
+    padding: 25px;
+    font-size: 20px;
+  }
+
+}
+</style>
     <header class="header">
       
       <div class="name">
@@ -30,7 +295,13 @@
       <div class="Profil-content">
         <h1>Hi , I'm <span class="typing"></span></h1>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-        <script src="./main_Profile.js"></script>
+        <script>var typing = new Typed(".typing", {
+    strings: ["Yassine.", "Hajjouji."],
+    typeSpeed: 100,
+    backSpeed: 50,
+    loop: true
+});
+</script>
 
         <h3>Web development student</h3>
         <p>
@@ -53,7 +324,7 @@
       </div>
 
       <div class="imgp">
-        <img src="../img/logo.png" alt="logo" />
+        <img src="./logo.png" alt="logo" />
       </div>
 
       <span class="Profil-imgHover"></span>
