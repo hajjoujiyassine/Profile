@@ -50,7 +50,6 @@
       }
 
       .name i {
-        filter: drop-shadow(0px 0px 20px);
         margin: 15px 50px 0px 15px;
       }
 
@@ -63,7 +62,7 @@
         height: 100%;
         background: #081b29;
         animation: ShowRight 1s ease forwards;
-        animation-delay: 2.5s;
+        animation-delay: .2s;
       }
 
       .navbar a {
@@ -82,7 +81,7 @@
         top: 0;
         right: 0;
         width: 100%;
-        height: 100%;
+        height: 85%;
         background: #081b29;
         animation: ShowRight 1s ease forwards;
         animation-delay: 0.3s;
@@ -162,28 +161,15 @@
         transition: 3s;
       }
 
-      .Profil-imgHover::before {
-        content: "";
+      .imgp img {
+        width: 20%;
+        height: 40%;
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: #081b29;
-        animation: ShowRight 1s ease forwards;
-        animation-delay: 2s;
-      }
-
-      .Profil-imgHover:hover {
-        background: #081b29;
-        opacity: 0.8;
-      }
-
-      .imgp {
-        position: absolute;
-        right: 150px;
-        border-radius: 20px;
-        filter: drop-shadow(1px 1px 15px #00abf0);
+        top: 150px;
+        left: 850px;
+        border-radius: 500px;
+        box-shadow: #00abf0 0 0 20px;
+        border: #00abf0 5px solid;
       }
 
       .Profil-sci {
@@ -237,45 +223,10 @@
           width: 0;
         }
       }
-
-      @media (max-width: 768px) {
-        .logo {
-          margin-left: 10px;
-          font-size: 16px;
-        }
-
-        .navbar {
-          position: relative;
-          display: flex;
-          justify-content: center;
-        }
-
-        .imgp {
-          width: 50%;
-          height: 50%;
-          border: none;
-          box-shadow: none;
-        }
-
-        .imgp img {
-          width: 0%;
-          height: 0%;
-        }
-
-        .Profil-imgHover:hover {
-          background: transparent;
-        }
-
-        .Profil-sci a {
-          margin: 0px 20px 65px 20px;
-          padding: 25px;
-          font-size: 20px;
-        }
-      }
     </style>
     <header class="header">
       <div class="name">
-        <h1><i class="bx bx-home"></i></h1>
+        <h1><i class='bx bx-user'></i></h1>
       </div>
 
       <nav class="navbar">
@@ -330,10 +281,49 @@
       </div>
 
       <div class="imgp">
-        <img src="./logo.png" alt="logo" />
+        <img
+          src="./Photo_Profile.jpg"
+          alt="Photo de Hal"
+          class="profile-image"
+          id="profileImage"
+        />
       </div>
+      <script>
+        const profileImage = document.getElementById("profileImage");
 
-      <span class="Profil-imgHover"></span>
+        window.addEventListener("load", function () {
+          profileImage.style.transform = "scale(0)";
+          profileImage.style.opacity = "0";
+
+          setTimeout(() => {
+            profileImage.style.transition = "all 0.8s ease-out";
+            profileImage.style.transform = "scale(1)";
+            profileImage.style.opacity = "1";
+          }, 300);
+        });
+
+        profileImage.addEventListener("mouseenter", function () {
+          this.style.transition = "all 0.3s ease";
+          this.style.transform = "scale(1.1) rotate(5deg)";
+          this.style.boxShadow = "0 0px 20px #00abf0";
+        });
+
+        profileImage.addEventListener("mouseleave", function () {
+          this.style.transition = "all 0.3s ease";
+          this.style.transform = "scale(1) rotate(0deg)";
+          this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+        });
+
+        setInterval(() => {
+          profileImage.style.transition = "all 0.5s ease";
+          profileImage.style.transform = "scale(1.05)";
+
+          setTimeout(() => {
+            profileImage.style.transition = "all 0.5s ease";
+            profileImage.style.transform = "scale(1)";
+          }, 500);
+        }, 5000);
+      </script>
     </section>
   </body>
 </html>
