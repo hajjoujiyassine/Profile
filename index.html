@@ -62,7 +62,7 @@
         height: 100%;
         background: #081b29;
         animation: ShowRight 1s ease forwards;
-        animation-delay: .2s;
+        animation-delay: 0.2s;
       }
 
       .navbar a {
@@ -152,17 +152,6 @@
         animation-delay: 1.6s;
       }
 
-      .imgp img {
-        width: 20%;
-        height: 40%;
-        position: absolute;
-        top: 120px;
-        left: 850px;
-        border-radius: 500px;
-        border: #00abf0 5px solid;
-        filter: drop-shadow(0 0 10px #00abf0);
-      }
-
       .Profil-sci {
         position: absolute;
         left: 100px;
@@ -209,6 +198,123 @@
         font-weight: 600;
       }
 
+      .profile-container {
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: 200px;
+        top: 150px;
+      }
+
+      .profile-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: relative;
+        z-index: 3;
+      }
+
+      .border-1 {
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .border-2 {
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+        border: 10px solid transparent;
+        border-radius: 50%;
+        z-index: 2;
+        animation: rotateBorder 3s linear infinite;
+      }
+
+      .border-3 {
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        right: -24px;
+        bottom: -24px;
+        border: 2px solid #00abf0;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: #007bff 0 0 20px;
+      }
+
+      @keyframes rotateBorder {
+        0% {
+          border: 10px solid transparent;
+          border-top: 10px solid #007bff;
+          transform: rotate(0deg);
+        }
+        25% {
+          border: 10px solid transparent;
+          border-right: 10px solid #007bff;
+        }
+        50% {
+          border: 10px solid transparent;
+          border-bottom: 10px solid #007bff;
+        }
+        75% {
+          border: 10px solid transparent;
+          border-left: 10px solid #007bff;
+        }
+        100% {
+          border: 10px solid transparent;
+          border-top: 10px solid #007bff;
+          transform: rotate(360deg);
+        }
+      }
+
+      .border-2-alternative {
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+        border: 10px solid transparent;
+        border-radius: 50%;
+        z-index: 2;
+        animation: rotateGrowBorder 3s linear infinite;
+      }
+
+      @keyframes rotateGrowBorder {
+        0% {
+          border: 10px solid transparent;
+          border-top: 10px solid #ff6b6b;
+          transform: rotate(0deg);
+        }
+        25% {
+          border: 10px solid transparent;
+          border-right: 10px solid #ff6b6b;
+          border-width: 15px;
+        }
+        50% {
+          border: 10px solid transparent;
+          border-bottom: 10px solid #ff6b6b;
+          border-width: 20px;
+        }
+        75% {
+          border: 10px solid transparent;
+          border-left: 10px solid #ff6b6b;
+          border-width: 15px;
+        }
+        100% {
+          border: 10px solid transparent;
+          border-top: 10px solid #ff6b6b;
+          transform: rotate(360deg);
+        }
+      }
+
       @keyframes ShowRight {
         100% {
           width: 0;
@@ -217,7 +323,7 @@
     </style>
     <header class="header">
       <div class="name">
-        <h1><i class='bx bx-user'></i></h1>
+        <h1><i class="bx bx-user"></i></h1>
       </div>
 
       <nav class="navbar">
@@ -271,49 +377,39 @@
         </div>
       </div>
 
-      <div class="imgp">
+      <div class="profile-container">
         <img
           src="./Photo_Profile.jpg"
-          alt="Photo de Hal"
-          class="profile-image"
-          id="profileImage"
+          alt="Profile"
+          class="profile-img"
+          id="profileImg"
         />
+        <div class="border-1"></div>
+        <div class="border-2" id="border2"></div>
+        <div class="border-3"></div>
       </div>
+
       <script>
-        const profileImage = document.getElementById("profileImage");
+        document.addEventListener("DOMContentLoaded", function () {
+          const profileImg = document.getElementById("profileImg");
+          const border2 = document.querySelector(".border-2");
 
-        window.addEventListener("load", function () {
-          profileImage.style.transform = "scale(0)";
-          profileImage.style.opacity = "0";
+          profileImg.addEventListener("mouseenter", function () {
+            border2.style.animationDuration = "1s";
+          });
 
-          setTimeout(() => {
-            profileImage.style.transition = "all 0.8s ease-out";
-            profileImage.style.transform = "scale(1)";
-            profileImage.style.opacity = "1";
-          }, 300);
+          profileImg.addEventListener("mouseleave", function () {
+            border2.style.animationDuration = "3s";
+          });
+
+          profileImg.addEventListener("click", function () {
+            border2.style.animationPlayState = "paused";
+
+            setTimeout(() => {
+              border2.style.animationPlayState = "running";
+            }, 1000);
+          });
         });
-
-        profileImage.addEventListener("mouseenter", function () {
-          this.style.transition = "all 0.3s ease";
-          this.style.transform = "scale(1.1) rotate(5deg)";
-          this.style.boxShadow = "0 0px 20px #00abf0";
-        });
-
-        profileImage.addEventListener("mouseleave", function () {
-          this.style.transition = "all 0.3s ease";
-          this.style.transform = "scale(1) rotate(0deg)";
-          this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
-        });
-
-        setInterval(() => {
-          profileImage.style.transition = "all 0.5s ease";
-          profileImage.style.transform = "scale(1.05)";
-
-          setTimeout(() => {
-            profileImage.style.transition = "all 0.5s ease";
-            profileImage.style.transform = "scale(1)";
-          }, 500);
-        }, 5000);
       </script>
     </section>
   </body>
