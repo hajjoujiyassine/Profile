@@ -375,7 +375,7 @@
         background-color:#081b29;
       }
         .name i {
-          margin: 0px 50px 0px -30px;
+          margin: 0px 60px 0px -30px;
         }
 
         .navbar a {
@@ -392,37 +392,96 @@
         .Profil-content h1 {
         position: relative;
         font-size: 40px;
-         left: 100px;
+         left: 15px;
         font-weight: 700;
-        top: 270px;
+        top: 300px;
       }
 
       .Profil-content h3 {
         position: relative;
-        top: 270px;
-        left: 100px;
+        top: 300px;
+        left: 15px;
         font-size: 24px;
         font-weight: 700;
         color: #00abf0;
       }
-      .Profil-content p {
+      .Profil-content p{
         position: relative;
-        top: 270px;
-        left: 30px;
-        font-size: 16px;
+        top: 290px;
+        left: 15px;
+        font-size: 13px;
         font-weight: 600;
         margin: 20px 0 40px;
       }
+
+      .profile-container img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        position: relative;
+        z-index: 3;
+        left: 80px;
+      }
+
+       .border-1 {
+        position: absolute;
+        top: -5px;
+        left: 75px;
+        right: -85px;
+        bottom: -5px;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .border-2 {
+        position: absolute;
+        top: -10px;
+        left: 70px;
+        right: -92px;
+        bottom: -10px;
+        border: 15px solid transparent;
+        border-radius: 50%;
+        z-index: 2;
+        animation: rotateBorder 3s linear infinite;
+      }
+
+      .border-3 {
+        position: absolute;
+        top: -20px;
+        left: 61px;
+        right: -100px;
+        bottom: -20px;
+        border: 2px solid #00abf0;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: #007bff 0 0 20px;
+      }
+
+      .profile-container p::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 110%;
+        height: 100%;
+        background: #081b29;
+        animation: ShowRight 1s ease forwards;
+        animation-delay: 1.6s;
+      }
+
       .profile-container p{
         position: relative;
         width: 330px;
         height: 335px;
         top: -300px;
         z-index: 4;
+        left: 20px;
         color: transparent;
-        margin-bottom: 1000px;
+
       }
-      .Profil-content p::before {
+       .Profil-content p::before { 
         content: "";
         position: absolute;
         top: 0;
@@ -435,8 +494,8 @@
       }
       .Profil-sci {
         position: absolute;
-        top: 400px;
-        left: 100px;
+        top: 460px;
+        left: 60px;
         display:grid;
         justify-content:center;
         align-items: center;
@@ -446,9 +505,10 @@
       .Profil-sci div {
         margin: 10px;
         margin-left: -80px;
-        padding: 5px 150px 5px 50px;
+        padding: 5px 20px 5px 50px;
         border-radius: 15px;
         box-shadow: 0 0 10px #00abf0;
+        gap: 20px;
       }
 
       }
